@@ -1,0 +1,53 @@
+<main class="bg-[#3A322B] h-full">
+  <section
+    id="Hero section"
+    class="text-white flex p-20 px-20 border-t border-b border-[#D4AF37]"
+  >
+    <div class="text-3xl">
+      <h1>Welcome to Bookverse</h1>
+      <br />
+      <h2 class="text-xl">
+        Your cozy corner for discoverying timeless stories. Browse our curated
+        collection 📚🎧☕
+      </h2>
+    </div>
+  </section>
+  <section id="main" class="text-white text-xl p-10 px-20">
+    <h1>Browse by Genre</h1>
+    <div class="flex">
+      <ul class="flex space-x-10 mt-5">
+        <li
+          *ngFor="let cat of categories"
+          class="px-6 py-2 cursor-pointer hover:bg-[#D4AF37] hover:text-black transition rounded-xl bg-[#5A534C]"
+        >
+          {{ cat }}
+        </li>
+      </ul>
+    </div>
+    <div class="flex justify-center">
+      <ul class="grid grid-cols-3 gap-5 mt-10">
+        <li
+          *ngFor="let book of books"
+          class="border -row rounded-xl h-125 w-100 bg-[#3A322B] p-5"
+        >
+          <div class="flex w-full h-70 items-center justify-center">Logo</div>
+          <div class="flex w-full h-25 p-3 justify-between">
+            <div class="">
+              {{ book.title }}
+              <br />
+              <div class="text-sm">
+                {{ book.author }}
+              </div>
+            </div>
+            <div class="text-[#D4AF37]">{{ book.price }}$</div>
+          </div>
+          <div
+            class="w-full h-15 p-3 rounded-xl bg-[#D4AF37] text-black cursor-pointer hover:bg-[#5A534C] hover:text-white transition"
+          >
+            Add to cart
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
