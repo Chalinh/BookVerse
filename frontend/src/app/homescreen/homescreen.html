@@ -32,19 +32,31 @@
         >
           <div class="flex w-full h-70 items-center justify-center">Logo</div>
           <div class="flex w-full h-25 p-3 justify-between">
-            <div class="">
+            <div> 
               {{ book.title }}
               <br />
               <div class="text-sm">
                 {{ book.author }}
               </div>
+              <div
+                class="mt-1 text-sm w-fit px-3 py-1 rounded-xl bg-[#D4AF37] text-black"
+              >
+                {{ book.genre }}
+              </div>
             </div>
-            <div class="text-[#D4AF37]">{{ book.price }}$</div>
+            <div class="text-[#D4AF37] text-3xl">{{ book.price }}$</div>
           </div>
-          <div
-            class="w-full h-15 p-3 rounded-xl bg-[#D4AF37] text-black cursor-pointer hover:bg-[#5A534C] hover:text-white transition"
-          >
-            Add to cart
+          <div class="flex w-full h-15 justify-between px-10">
+            <div
+              class="p-3 rounded-xl bg-[#5A534C] text-white cursor-pointer hover:bg-[#D4AF37] hover:text-black transition"
+            >
+              Add to cart
+            </div>
+            <div
+              class="p-3 rounded-xl bg-[#D4AF37] text-black cursor-pointer hover:bg-[#5A534C] hover:text-white transition"
+            >
+              Purchase
+            </div>
           </div>
         </li>
       </ul>

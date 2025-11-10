@@ -11,8 +11,9 @@ import { CommonModule } from '@angular/common';
 export class Homescreen {
   categories = ['All', 'Fiction', 'Classic', 'Mystery', 'Fantasy', 'Romance'];
   books = [
-    { title: 'Dune', author: 'Frank Herbert', price: 13 },
-    { title: 'Harry Potter', author: 'J.K. Rowling', price: 14 },
-    { title: 'Sherlock Holmes', author: 'Arthur Conan Doyle', price: 15 },
+    { title: 'Dune', author: 'Frank Herbert', price: 13, genre: 'Classic' },
+    { title: 'Harry Potter', author: 'J.K. Rowling', price: 14, genre: 'Fiction' },
+    { title: 'Sherlock Holmes', author: 'Arthur Conan Doyle', price: 15, genre: 'Romance' },
+    { title: 'The Avenger', author: 'Stanlee', price: 20, genre: 'Fiction' },
   ];
 }
