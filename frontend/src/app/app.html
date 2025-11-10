@@ -1,42 +1,95 @@
-<main class="main ">
+<main class="main">
   <section>
     <header>
       <nav
-        class="p-5 flex flex-row mx-auto justify-between px-20 bg-[#2A2520] text-white"
+        class="bg-[#2A2520] text-white p-5 flex flex-wrap items-center justify-between"
       >
-        <div id="logo" class="flex text-3xl text-[#D4AF37] font-bold">
-          <a routerLink="/home" class="flex"
-            ><lucide-angular size="35" [img]="Book"></lucide-angular
-            >Bookverse</a
-          >
+        <!-- Logo -->
+        <div
+          id="logo"
+          class="flex items-center text-3xl font-bold text-[#D4AF37]"
+        >
+          <a routerLink="/home" class="flex items-center space-x-2">
+            <lucide-angular size="35" [img]="Book"></lucide-angular>
+            <span>Bookverse</span>
+          </a>
         </div>
-        <div id="navigation" class="flex text-xl">
-          <ul class="flex space-x-20">
-            <ol>
+
+        <!-- Desktop Navigation Links -->
+        <div id="navigation" class="hidden md:flex text-xl">
+          <ul class="flex space-x-10">
+            <li>
               <a
                 routerLink="/home"
-                class="transition-all duration-200 hover:scale-125 hover:text-[#D4AF37] cursor-pointer"
-                >Home</a
+                class="transition-all duration-200 hover:scale-110 hover:text-[#D4AF37] cursor-pointer"
               >
-            </ol>
-            <ol>
+                Home
+              </a>
+            </li>
+            <li>
               <a
                 routerLink="/about"
-                class="transition-all duration-200 hover:scale-125 hover:text-[#D4AF37] cursor-pointer"
-                >About</a
+                class="transition-all duration-200 hover:scale-110 hover:text-[#D4AF37] cursor-pointer"
               >
-            </ol>
+                About
+              </a>
+            </li>
           </ul>
         </div>
-        <div id="cart" class="flex">
+
+        <!-- Cart + Mobile Hamburger -->
+        <div class="flex items-center space-x-2 md:space-x-0">
+          <!-- Cart Icon -->
           <lucide-angular
             routerLink="/cart"
             size="35"
             [img]="ShoppingCart"
             class="transition-all duration-200 hover:scale-105 hover:text-[#D4AF37] cursor-pointer"
           ></lucide-angular>
+
+          <!-- Hamburger Menu (Mobile Only) -->
+          <button
+            (click)="toggleMenu()"
+            class="md:hidden text-white focus:outline-none"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
       </nav>
+
+      <!-- Mobile Menu -->
+      <div *ngIf="menuOpen" class="md:hidden bg-[#2A2520] text-white px-5 pb-5">
+        <ul class="flex flex-col space-y-3">
+          <li>
+            <a
+              routerLink="/home"
+              class="transition-all duration-200 hover:scale-110 hover:text-[#D4AF37] cursor-pointer"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/about"
+              class="transition-all duration-200 hover:scale-110 hover:text-[#D4AF37] cursor-pointer"
+            >
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
     </header>
   </section>
   <router-outlet></router-outlet>
