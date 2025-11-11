@@ -1,0 +1,108 @@
+<main class="bg-[#2A2520] min-h-screen p-5 md:p-10 text-white">
+  <!-- Page Title -->
+  <section class="text-center mb-8">
+    <h1 class="text-3xl md:text-5xl font-bold text-[#D4AF37]">
+      Checkout & Payment
+    </h1>
+    <div class="w-20 h-1 bg-[#D4AF37] rounded-full mx-auto mt-3"></div>
+  </section>
+
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Payment Form -->
+    <div class="lg:col-span-2 bg-[#3A322B] rounded-xl p-6 space-y-6">
+      <h2 class="text-2xl font-semibold">Payment Details</h2>
+
+      <!-- Billing / Shipping -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          type="text"
+          placeholder="Full name"
+          (input)="name = $any($event.target).value"
+          class="p-3 rounded-lg bg-[#2A2520] border border-[#5A534C] placeholder:opacity-70"
+        />
+        <input
+          type="text"
+          placeholder="Shipping address"
+          (input)="address = $any($event.target).value"
+          class="p-3 rounded-lg bg-[#2A2520] border border-[#5A534C] placeholder:opacity-70"
+        />
+      </div>
+
+      <!-- Card Info -->
+      <div class="space-y-3">
+        <label class="text-sm opacity-80">Card information</label>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <input
+            type="text"
+            placeholder="Card number"
+            (input)="cardNumber = $any($event.target).value"
+            class="md:col-span-2 p-3 rounded-lg bg-[#2A2520] border border-[#5A534C] placeholder:opacity-70"
+          />
+          <input
+            type="text"
+            placeholder="MM/YY"
+            (input)="exp = $any($event.target).value"
+            class="p-3 rounded-lg bg-[#2A2520] border border-[#5A534C] placeholder:opacity-70"
+          />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <input
+            type="text"
+            placeholder="CVV"
+            (input)="cvv = $any($event.target).value"
+            class="p-3 rounded-lg bg-[#2A2520] border border-[#5A534C] placeholder:opacity-70 w-full md:w-1/2"
+          />
+        </div>
+      </div>
+
+      <!-- Notes / Promo -->
+      <div>
+        <textarea
+          rows="3"
+          placeholder="Order notes (optional)"
+          (input)="notes = $any($event.target).value"
+          class="w-full p-3 rounded-lg bg-[#2A2520] border border-[#5A534C] placeholder:opacity-70"
+        ></textarea>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex justify-end">
+        <button
+          (click)="pay()"
+          class="px-6 py-3 rounded-xl bg-[#D4AF37] text-black font-bold hover:bg-[#b7942f] transition"
+        >
+          Pay {{ getTotal() | currency : "USD" : true }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <aside class="bg-[#3A322B] rounded-xl p-6 space-y-4">
+      <h2 class="text-2xl font-semibold">Order Summary</h2>
+
+      <ul class="space-y-3">
+        <li
+          *ngFor="let it of items"
+          class="flex justify-between items-center bg-[#2A2520] p-3 rounded-lg"
+        >
+          <div>
+            <div class="font-bold">{{ it.title }}</div>
+            <div class="text-sm opacity-80">Qty: {{ it.quantity }}</div>
+          </div>
+          <div class="text-[#D4AF37] font-bold">
+            {{ it.price * it.quantity | currency : "USD" : true }}
+          </div>
+        </li>
+      </ul>
+
+      <div class="pt-3 border-t border-[#5A534C]">
+        <div class="flex justify-between items-center text-xl font-bold">
+          <div>Total</div>
+          <div class="text-[#D4AF37]">
+            {{ getTotal() | currency : "USD" : true }}
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>

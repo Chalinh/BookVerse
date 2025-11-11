@@ -1,11 +1,14 @@
 <main class="bg-[#2A2520] h-full">
-
   <!-- Hero Section -->
-  <section id="hero" class="text-white flex flex-col md:flex-row p-10 md:p-20 border-t border-b border-[#D4AF37]">
+  <section
+    id="hero"
+    class="text-white flex flex-col md:flex-row p-10 md:p-20 border-t border-b border-[#D4AF37]"
+  >
     <div class="text-2xl md:text-3xl space-y-4">
       <h1 class="text-3xl md:text-5xl font-bold">Welcome to Bookverse</h1>
       <h2 class="text-lg md:text-xl">
-        Your cozy corner for discovering timeless stories. Browse our curated collection 📚🎧☕
+        Your cozy corner for discovering timeless stories. Browse our curated
+        collection 📚🎧☕
       </h2>
     </div>
   </section>
@@ -31,36 +34,48 @@
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
         <li
           *ngFor="let book of books"
-          class=" rounded-xl bg-[#3A322B] p-5 flex flex-col justify-between"
+          class="rounded-xl bg-[#3A322B] p-5 flex flex-col justify-between"
         >
           <!-- Book Logo / Image -->
-          <div class="flex w-full h-60 md:h-72 items-center justify-center bg-[#2A2520] rounded-xl mb-3">
+          <div
+            class="flex w-full h-60 md:h-72 items-center justify-center bg-[#2A2520] rounded-xl mb-3"
+          >
             Logo
           </div>
 
           <!-- Book Info -->
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-3 space-y-2 md:space-y-0 md:space-x-2">
+          <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-center mb-3 space-y-2 md:space-y-0 md:space-x-2"
+          >
             <div class="flex flex-col space-y-1">
               <div class="font-bold text-lg md:text-xl">{{ book.title }}</div>
               <div class="text-sm opacity-80">{{ book.author }}</div>
-              <div class="mt-1 text-sm w-fit px-3 py-1 rounded-xl bg-[#D4AF37] text-black">
+              <div
+                class="mt-1 text-sm w-fit px-3 py-1 rounded-xl bg-[#D4AF37] text-black"
+              >
                 {{ book.genre }}
               </div>
             </div>
-            <div class="text-[#D4AF37] text-2xl md:text-3xl font-bold mt-2 md:mt-0">
+            <div
+              class="text-[#D4AF37] text-2xl md:text-3xl font-bold mt-2 md:mt-0"
+            >
               {{ book.price }}$
             </div>
           </div>
 
           <!-- Actions -->
-          <div class="flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0 sm:space-x-2">
+          <div
+            class="flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0 sm:space-x-2"
+          >
             <div
               class="flex-1 text-center p-3 rounded-xl bg-[#5A534C] text-white cursor-pointer hover:bg-[#D4AF37] hover:text-black transition"
+              (click)="addToCart(book)"
             >
               Add to cart
             </div>
             <div
               class="flex-1 text-center p-3 rounded-xl bg-[#D4AF37] text-black cursor-pointer hover:bg-[#5A534C] hover:text-white transition"
+              (click)="purchase(book)"
             >
               Purchase
             </div>
@@ -68,6 +83,14 @@
         </li>
       </ul>
     </div>
-
   </section>
+
+  <!-- Add-to-cart toast -->
+  <div *ngIf="toastVisible" class="fixed right-5 bottom-5 z-50">
+    <div
+      class="px-4 py-2 rounded-xl bg-[#D4AF37] text-black font-semibold shadow-lg"
+    >
+      {{ toastMessage }}
+    </div>
+  </div>
 </main>

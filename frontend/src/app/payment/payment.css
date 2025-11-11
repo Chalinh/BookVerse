@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Small tweaks for inputs when using the dark cozy theme */
+.input-muted::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.rounded-card {
+  border-radius: 0.75rem;
+}

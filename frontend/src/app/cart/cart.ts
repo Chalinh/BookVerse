@@ -1,49 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { CartService } from '../services/cart.service';
+
 @Component({
   selector: 'app-cart',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
 export class Cart {
-  cartItems = [
-    {
-      title: 'Book One',
-      author: 'Author A',
-      genre: 'Fiction',
-      price: 16,
-      quantity: 1,
-    },
-    {
-      title: 'Book Two',
-      author: 'Author B',
-      genre: 'Mystery',
-      price: 20,
-      quantity: 2,
-    },
-  ];
+  cart = inject(CartService);
+  private router = inject(Router);
 
   increaseQuantity(item: any) {
-    item.quantity++;
+    this.cart.increase(item);
   }
 
   decreaseQuantity(item: any) {
-    if (item.quantity > 1) item.quantity--;
+    this.cart.decrease(item);
   }
 
   removeItem(item: any) {
-    this.cartItems = this.cartItems.filter((i) => i !== item);
+    this.cart.remove(item);
   }
 
   getTotal() {
-    return this.cartItems.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-      0
-    );
+    return this.cart.getTotal();
   }
 
   checkout() {
-    alert('Proceeding to checkout...');
+    this.router.navigate(['/payment']);
   }
 }
