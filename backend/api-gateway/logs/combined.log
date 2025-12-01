@@ -2306,3 +2306,39 @@
 2025-11-30 21:26:58 [info]: 📊 Redis: Disabled
 2025-11-30 21:26:58 [info]: 🛡️  Rate Limiting: Enabled
 2025-11-30 21:26:58 [info]: ✅ Ready to handle requests
+2025-12-01 13:14:05 [info]: Redis disabled, using in-memory rate limiting
+2025-12-01 13:14:05 [info]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
+2025-12-01 13:14:05 [info]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
+2025-12-01 13:14:05 [info]: Configuring route: /v1/books -> http://localhost:3004 (Auth: false)
+2025-12-01 13:14:05 [info]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
+2025-12-01 13:14:05 [info]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-01 13:14:05 [info]: 🚀 API Gateway started successfully
+2025-12-01 13:14:05 [info]: 📍 Environment: development
+2025-12-01 13:14:05 [info]: 🌐 Port: 3000
+2025-12-01 13:14:05 [info]: 🔒 CORS Origin: http://localhost:4200
+2025-12-01 13:14:05 [info]: 📊 Redis: Disabled
+2025-12-01 13:14:05 [info]: 🛡️  Rate Limiting: Enabled
+2025-12-01 13:14:05 [info]: ✅ Ready to handle requests
+2025-12-01 13:16:54 [info]: GET /v1/books
+2025-12-01 13:38:51 [info]: Redis disabled, using in-memory rate limiting
+2025-12-01 13:38:51 [info]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
+2025-12-01 13:38:51 [info]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
+2025-12-01 13:38:51 [info]: Configuring route: /v1/books -> http://localhost:3004 (Auth: false)
+2025-12-01 13:38:51 [info]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
+2025-12-01 13:38:51 [info]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-01 13:38:51 [info]: 🚀 API Gateway started successfully
+2025-12-01 13:38:51 [info]: 📍 Environment: development
+2025-12-01 13:38:51 [info]: 🌐 Port: 3000
+2025-12-01 13:38:51 [info]: 🔒 CORS Origin: http://localhost:4200
+2025-12-01 13:38:51 [info]: 📊 Redis: Disabled
+2025-12-01 13:38:51 [info]: 🛡️  Rate Limiting: Enabled
+2025-12-01 13:38:51 [info]: ✅ Ready to handle requests
+2025-12-01 13:38:55 [info]: GET /v1/books
+2025-12-01 13:38:56 [info]: GET /v1/auth/refresh
+2025-12-01 13:38:56 [info]: GET /v1/books
+2025-12-01 13:38:56 [info]: GET /v1/cart
+2025-12-01 13:38:59 [info]: POST /v1/cart/add
+2025-12-01 13:38:59 [info]: POST /v1/cart/add
+2025-12-01 13:39:00 [info]: POST /v1/cart/add
+2025-12-01 13:39:07 [info]: POST /v1/orders
+2025-12-01 13:39:12 [info]: POST /v1/orders

@@ -1,4 +1,14 @@
-[dotenv@17.2.3] injecting env (4) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
-[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (4) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
 Auth Service running on port 5000
 MongoDB connected!
+[Refresh Token] Request received, cookie present: true
+[Refresh Token] Cookies: {
+  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmQzMGJjNGU3MjQyZTAyYTQ3NzJmNSIsImVtYWlsIjoic2VuZ25vbmFtZTE2OEBnbWFpbC5jb20iLCJpYXQiOjE3NjQ1NzEwNTgsImV4cCI6MTc2NTE3NTg1OH0.-W1AOD0eNcv0Ha15xlaxcwcl2wxvybnMAl4-aEHWvMs',
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmQzMGJjNGU3MjQyZTAyYTQ3NzJmNSIsImVtYWlsIjoic2VuZ25vbmFtZTE2OEBnbWFpbC5jb20iLCJpYXQiOjE3NjQ1NzEwNzEsImV4cCI6MTc2NDU3NDY3MX0.igmJniHF-d0NycDYr5k0dFcP4rWTafcrYWhU91rdI_I'
+}
+[Refresh Token] Token decoded, user ID: 692d30bc4e7242e02a4772f5
+[Refresh Token] User found: true
+[Refresh Token] Token from cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5M...
+[Refresh Token] Token from DB: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5M...
+[Refresh Token] Tokens match: true

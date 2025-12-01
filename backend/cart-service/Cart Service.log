@@ -1,3 +1,100 @@
-[dotenv@17.2.3] injecting env (5) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (5) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
 MongoDB connected
 Cart Service running on port 3001
+[Cart Controller] Get cart request: {
+  userId: '692d30bc4e7242e02a4772f5',
+  userFromHeaders: {
+    id: '692d30bc4e7242e02a4772f5',
+    role: 'user',
+    email: 'sengnoname168@gmail.com'
+  }
+}
+[Cart Controller] Found cart: {
+  _id: new ObjectId('692d30c2c5ba2a82c13c8f23'),
+  user: new ObjectId('692d30bc4e7242e02a4772f5'),
+  createdAt: 2025-12-01T06:08:02.840Z,
+  updatedAt: 2025-12-01T06:08:02.840Z,
+  __v: 0
+}
+[Cart Controller] Returning cart with items: 0
+[Cart Controller] Add to cart request: {
+  bookId: '692573bc154d8e8a803b4953',
+  userId: '692d30bc4e7242e02a4772f5',
+  userFromHeaders: {
+    id: '692d30bc4e7242e02a4772f5',
+    role: 'user',
+    email: 'sengnoname168@gmail.com'
+  }
+}
+[Cart Controller] Found cart: {
+  _id: new ObjectId('692d30c2c5ba2a82c13c8f23'),
+  user: new ObjectId('692d30bc4e7242e02a4772f5'),
+  createdAt: 2025-12-01T06:08:02.840Z,
+  updatedAt: 2025-12-01T06:08:02.840Z,
+  __v: 0
+}
+[Cart Controller] Found cart item: null
+[Cart Controller] Add to cart request: {
+  bookId: '692573bc154d8e8a803b4954',
+  userId: '692d30bc4e7242e02a4772f5',
+  userFromHeaders: {
+    id: '692d30bc4e7242e02a4772f5',
+    role: 'user',
+    email: 'sengnoname168@gmail.com'
+  }
+}
+[Cart Controller] Created new cart item: {
+  cart: new ObjectId('692d30c2c5ba2a82c13c8f23'),
+  book: new ObjectId('692573bc154d8e8a803b4953'),
+  quantity: 1,
+  _id: new ObjectId('692d3803988a5edb988b6c90'),
+  createdAt: 2025-12-01T06:38:59.700Z,
+  updatedAt: 2025-12-01T06:38:59.700Z,
+  __v: 0
+}
+[Cart Controller] Found cart: {
+  _id: new ObjectId('692d30c2c5ba2a82c13c8f23'),
+  user: new ObjectId('692d30bc4e7242e02a4772f5'),
+  createdAt: 2025-12-01T06:08:02.840Z,
+  updatedAt: 2025-12-01T06:08:02.840Z,
+  __v: 0
+}
+[Cart Controller] Returning cart with items: 1
+[Cart Controller] Found cart item: null
+[Cart Controller] Created new cart item: {
+  cart: new ObjectId('692d30c2c5ba2a82c13c8f23'),
+  book: new ObjectId('692573bc154d8e8a803b4954'),
+  quantity: 1,
+  _id: new ObjectId('692d3804988a5edb988b6c95'),
+  createdAt: 2025-12-01T06:39:00.049Z,
+  updatedAt: 2025-12-01T06:39:00.049Z,
+  __v: 0
+}
+[Cart Controller] Add to cart request: {
+  bookId: '692573bc154d8e8a803b4955',
+  userId: '692d30bc4e7242e02a4772f5',
+  userFromHeaders: {
+    id: '692d30bc4e7242e02a4772f5',
+    role: 'user',
+    email: 'sengnoname168@gmail.com'
+  }
+}
+[Cart Controller] Found cart: {
+  _id: new ObjectId('692d30c2c5ba2a82c13c8f23'),
+  user: new ObjectId('692d30bc4e7242e02a4772f5'),
+  createdAt: 2025-12-01T06:08:02.840Z,
+  updatedAt: 2025-12-01T06:08:02.840Z,
+  __v: 0
+}
+[Cart Controller] Found cart item: null
+[Cart Controller] Created new cart item: {
+  cart: new ObjectId('692d30c2c5ba2a82c13c8f23'),
+  book: new ObjectId('692573bc154d8e8a803b4955'),
+  quantity: 1,
+  _id: new ObjectId('692d3804988a5edb988b6c9a'),
+  createdAt: 2025-12-01T06:39:00.631Z,
+  updatedAt: 2025-12-01T06:39:00.631Z,
+  __v: 0
+}
+[Cart Controller] Returning cart with items: 2
+[Cart Controller] Returning cart with items: 3

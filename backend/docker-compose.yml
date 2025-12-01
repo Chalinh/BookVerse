@@ -1,0 +1,84 @@
+version: "3.8"
+services:
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./api-gateway/.env
+    depends_on:
+      - auth-service
+      - book-service
+      - cart-service
+      - order-service
+    environment:
+      NODE_ENV: development
+    dns:
+      - 8.8.8.8
+
+  auth-service:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./auth-service/.env
+    environment:
+      NODE_ENV: development
+    dns:
+      - 8.8.8.8
+
+  book-service:
+    build:
+      context: ./book-service
+      dockerfile: Dockerfile
+    ports:
+      - "3004:3004"
+    env_file:
+      - ./book-service/.env
+    environment:
+      NODE_ENV: development
+    dns:
+      - 8.8.8.8
+
+  cart-service:
+    build:
+      context: ./cart-service
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./cart-service/.env
+    environment:
+      NODE_ENV: development
+    dns:
+      - 8.8.8.8
+
+  order-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./order-service/.env
+    environment:
+      NODE_ENV: development
+    dns:
+      - 8.8.8.8
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - api-gateway
+
+networks:
+  default:
+    driver: bridge

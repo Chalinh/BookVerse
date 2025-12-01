@@ -1,14 +1,23 @@
-[dotenv@17.2.3] injecting env (6) from .env -- tip: ⚙️  enable debug logging with { debug: true }
-2025-11-30 21:26:58 [[32minfo[39m]: Redis disabled, using in-memory rate limiting
-2025-11-30 21:26:58 [[32minfo[39m]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
-2025-11-30 21:26:58 [[32minfo[39m]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
-2025-11-30 21:26:58 [[32minfo[39m]: Configuring route: /v1/books -> http://localhost:3004 (Auth: false)
-2025-11-30 21:26:58 [[32minfo[39m]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
-2025-11-30 21:26:58 [[32minfo[39m]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
-2025-11-30 21:26:58 [[32minfo[39m]: 🚀 API Gateway started successfully
-2025-11-30 21:26:58 [[32minfo[39m]: 📍 Environment: development
-2025-11-30 21:26:58 [[32minfo[39m]: 🌐 Port: 3000
-2025-11-30 21:26:58 [[32minfo[39m]: 🔒 CORS Origin: http://localhost:4200
-2025-11-30 21:26:58 [[32minfo[39m]: 📊 Redis: Disabled
-2025-11-30 21:26:58 [[32minfo[39m]: 🛡️  Rate Limiting: Enabled
-2025-11-30 21:26:58 [[32minfo[39m]: ✅ Ready to handle requests
+[dotenv@17.2.3] injecting env (6) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+2025-12-01 13:38:51 [[32minfo[39m]: Redis disabled, using in-memory rate limiting
+2025-12-01 13:38:51 [[32minfo[39m]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
+2025-12-01 13:38:51 [[32minfo[39m]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
+2025-12-01 13:38:51 [[32minfo[39m]: Configuring route: /v1/books -> http://localhost:3004 (Auth: false)
+2025-12-01 13:38:51 [[32minfo[39m]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
+2025-12-01 13:38:51 [[32minfo[39m]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-01 13:38:51 [[32minfo[39m]: 🚀 API Gateway started successfully
+2025-12-01 13:38:51 [[32minfo[39m]: 📍 Environment: development
+2025-12-01 13:38:51 [[32minfo[39m]: 🌐 Port: 3000
+2025-12-01 13:38:51 [[32minfo[39m]: 🔒 CORS Origin: http://localhost:4200
+2025-12-01 13:38:51 [[32minfo[39m]: 📊 Redis: Disabled
+2025-12-01 13:38:51 [[32minfo[39m]: 🛡️  Rate Limiting: Enabled
+2025-12-01 13:38:51 [[32minfo[39m]: ✅ Ready to handle requests
+2025-12-01 13:38:55 [[32minfo[39m]: GET /v1/books
+2025-12-01 13:38:56 [[32minfo[39m]: GET /v1/auth/refresh
+2025-12-01 13:38:56 [[32minfo[39m]: GET /v1/books
+2025-12-01 13:38:56 [[32minfo[39m]: GET /v1/cart
+2025-12-01 13:38:59 [[32minfo[39m]: POST /v1/cart/add
+2025-12-01 13:38:59 [[32minfo[39m]: POST /v1/cart/add
+2025-12-01 13:39:00 [[32minfo[39m]: POST /v1/cart/add
+2025-12-01 13:39:07 [[32minfo[39m]: POST /v1/orders
+2025-12-01 13:39:12 [[32minfo[39m]: POST /v1/orders

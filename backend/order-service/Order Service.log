@@ -1,3 +1,71 @@
-[dotenv@17.2.3] injecting env (6) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (6) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
 MongoDB connected
 Order Service running on port 3002
+User authenticated via API Gateway headers: {
+  id: '692d30bc4e7242e02a4772f5',
+  role: 'user',
+  email: 'sengnoname168@gmail.com'
+}
+[Order Controller] Create order request received
+[Order Controller] Headers: {
+  authorization: undefined,
+  'x-user-id': '692d30bc4e7242e02a4772f5',
+  'x-user-role': 'user',
+  'x-user-email': 'sengnoname168@gmail.com',
+  cookie: 'refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmQzMGJjNGU3MjQyZTAyYTQ3NzJmNSIsImVtYWlsIjoic2VuZ25vbmFtZTE2OEBnbWFpbC5jb20iLCJpYXQiOjE3NjQ1NzEwNTgsImV4cCI6MTc2NTE3NTg1OH0.-W1AOD0eNcv0Ha15xlaxcwcl2wxvybnMAl4-aEHWvMs; token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmQzMGJjNGU3MjQyZTAyYTQ3NzJmNSIsImVtYWlsIjoic2VuZ25vbmFtZTE2OEBnbWFpbC5jb20iLCJpYXQiOjE3NjQ1NzExMzYsImV4cCI6MTc2NDU3NDczNn0.GbBlZysH-OUvP4KGqU0OhsCxp8jik4CT8GglP5rrZWI'
+}
+[Order Controller] req.user: {
+  id: '692d30bc4e7242e02a4772f5',
+  role: 'user',
+  email: 'sengnoname168@gmail.com'
+}
+[Order Controller] Body: {
+  name: 'rgege',
+  shippingAddress: 'rgerg',
+  cardNumber: 'ergerg',
+  CVV: 'rgerg',
+  expiredDate: 'ergerge',
+  orderNote: 'er'
+}
+[Order Controller] User ID: 692d30bc4e7242e02a4772f5
+Calling Cart Service GET /cart: http://cart-service:3001/api/cart
+[Order Controller] Forwarding user headers to cart service: {
+  'x-user-id': '692d30bc4e7242e02a4772f5',
+  'x-user-role': 'user',
+  'x-user-email': 'sengnoname168@gmail.com'
+}
+Cart Service GET error: getaddrinfo ENOTFOUND cart-service
+User authenticated via API Gateway headers: {
+  id: '692d30bc4e7242e02a4772f5',
+  role: 'user',
+  email: 'sengnoname168@gmail.com'
+}
+[Order Controller] Create order request received
+[Order Controller] Headers: {
+  authorization: undefined,
+  'x-user-id': '692d30bc4e7242e02a4772f5',
+  'x-user-role': 'user',
+  'x-user-email': 'sengnoname168@gmail.com',
+  cookie: 'refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmQzMGJjNGU3MjQyZTAyYTQ3NzJmNSIsImVtYWlsIjoic2VuZ25vbmFtZTE2OEBnbWFpbC5jb20iLCJpYXQiOjE3NjQ1NzEwNTgsImV4cCI6MTc2NTE3NTg1OH0.-W1AOD0eNcv0Ha15xlaxcwcl2wxvybnMAl4-aEHWvMs; token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmQzMGJjNGU3MjQyZTAyYTQ3NzJmNSIsImVtYWlsIjoic2VuZ25vbmFtZTE2OEBnbWFpbC5jb20iLCJpYXQiOjE3NjQ1NzExMzYsImV4cCI6MTc2NDU3NDczNn0.GbBlZysH-OUvP4KGqU0OhsCxp8jik4CT8GglP5rrZWI'
+}
+[Order Controller] req.user: {
+  id: '692d30bc4e7242e02a4772f5',
+  role: 'user',
+  email: 'sengnoname168@gmail.com'
+}
+[Order Controller] Body: {
+  name: 'rgege',
+  shippingAddress: 'rgerg',
+  cardNumber: 'ergerg',
+  CVV: 'rgerg',
+  expiredDate: 'ergerge',
+  orderNote: 'er'
+}
+[Order Controller] User ID: 692d30bc4e7242e02a4772f5
+Calling Cart Service GET /cart: http://cart-service:3001/api/cart
+[Order Controller] Forwarding user headers to cart service: {
+  'x-user-id': '692d30bc4e7242e02a4772f5',
+  'x-user-role': 'user',
+  'x-user-email': 'sengnoname168@gmail.com'
+}
+Cart Service GET error: getaddrinfo ENOTFOUND cart-service

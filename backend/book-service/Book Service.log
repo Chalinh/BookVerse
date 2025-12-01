@@ -1,3 +1,3 @@
-[dotenv@17.2.3] injecting env (2) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
 MongoDB connected
-Book Service running on port 3000
+Book Service running on port 3004
