@@ -71,8 +71,8 @@ export class Homescreen {
       author: book.author,
       price: book.price,
       genre: book.genre,
-      bookId: book._id, // Pass book ID for backend sync
-      coverImage: book.coverImage, // Pass cover image URL
+      bookId: book._id,
+      coverImage: book.coverImage,
     });
     this.showToast(`${book.title} added to cart`);
   }

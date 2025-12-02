@@ -12,7 +12,7 @@ const demoBooks = [
     category: "Classic",
     description: "A gripping tale of racial injustice and childhood innocence.",
     publication_year: 1960,
-    image_url: "",
+    image_url: "https://covers.openlibrary.org/b/id/8228691-L.jpg",
   },
   {
     title: "The Great Gatsby",
@@ -22,7 +22,7 @@ const demoBooks = [
     description:
       "A story of wealth, love, and the American Dream in the 1920s.",
     publication_year: 1925,
-    image_url: "",
+    image_url: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
   },
   {
     title: "Murder on the Orient Express",
@@ -32,7 +32,7 @@ const demoBooks = [
     description:
       "Detective Hercule Poirot solves a murder aboard a luxurious train.",
     publication_year: 1934,
-    image_url: "",
+    image_url: "https://covers.openlibrary.org/b/id/8739161-L.jpg",
   },
   {
     title: "Harry Potter and the Sorcerer's Stone",
@@ -42,7 +42,7 @@ const demoBooks = [
     description:
       "A young wizard discovers his magical heritage and attends Hogwarts.",
     publication_year: 1997,
-    image_url: "",
+    image_url: "https://covers.openlibrary.org/b/id/10521270-L.jpg",
   },
   {
     title: "Pride and Prejudice",
@@ -52,7 +52,7 @@ const demoBooks = [
     description:
       "A witty exploration of love, marriage, and societal expectations.",
     publication_year: 1813,
-    image_url: "",
+    image_url: "https://covers.openlibrary.org/b/id/8235657-L.jpg",
   },
   {
     title: "The Hobbit",
@@ -62,7 +62,7 @@ const demoBooks = [
     description:
       "Bilbo Baggins embarks on an unexpected adventure with dwarves and a wizard.",
     publication_year: 1937,
-    image_url: "",
+    image_url: "https://covers.openlibrary.org/b/id/8566742-L.jpg",
   },
   {
     title: "1984",
@@ -72,7 +72,7 @@ const demoBooks = [
     description:
       "A dystopian novel about surveillance, totalitarianism, and individual freedom.",
     publication_year: 1949,
-    image_url: "",
+    image_url: "https://covers.openlibrary.org/b/id/7222246-L.jpg",
   },
   {
     title: "The Girl with the Dragon Tattoo",
@@ -82,7 +82,7 @@ const demoBooks = [
     description:
       "A journalist and hacker investigate a decades-old disappearance.",
     publication_year: 2005,
-    image_url: "",
+    image_url: "https://covers.openlibrary.org/b/id/8231279-L.jpg",
   },
   {
     title: "The Night Circus",
@@ -92,7 +92,7 @@ const demoBooks = [
     description:
       "A magical competition between two young illusionists set in a mysterious circus.",
     publication_year: 2011,
-    image_url: "",
+    image_url: "https://covers.openlibrary.org/b/id/8231329-L.jpg",
   },
 ];
 

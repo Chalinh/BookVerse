@@ -9,8 +9,8 @@ export interface CartItem {
   genre?: string;
   price: number;
   quantity: number;
-  bookId?: string; // Backend book ID
-  coverImage?: string; // Book cover image URL
+  bookId?: string;
+  coverImage?: string;
 }
 
 interface BackendCartItem {
@@ -31,7 +31,7 @@ interface BackendCartItem {
 @Injectable({ providedIn: 'root' })
 export class CartService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://gateway-service-mddd.onrender.com/v1'; // API Gateway base URL
+  private apiUrl = 'http://localhost:3000/v1'; // API Gateway base URL
   private _items = signal<CartItem[]>([]);
   private useBackend = signal<boolean>(false); // Flag to enable backend sync
 
@@ -42,9 +42,12 @@ export class CartService {
     this.useBackend.set(true);
   }
 
-  // Fetch cart from backend (requires auth)
+  // Fetch cart from backend and sync with local items (requires auth)
   fetchCart() {
     console.log('[CartService] Fetching cart from backend...');
+    const currentLocalItems = this._items();
+    console.log('[CartService] Current local items:', currentLocalItems);
+
     this.http
       .get<{ cartId: string; items: BackendCartItem[] }>(
         `${this.apiUrl}/cart`,
@@ -74,12 +77,82 @@ export class CartService {
           return of([]);
         })
       )
-      .subscribe((items) => {
-        console.log('[CartService] Fetched items:', items);
-        // Enable backend mode if fetch was successful (even if empty)
+      .subscribe((backendItems) => {
+        console.log('[CartService] Fetched backend items:', backendItems);
         this.useBackend.set(true);
-        this._items.set(items);
+
+        // If backend is empty but we have local items, sync local to backend
+        if (backendItems.length === 0 && currentLocalItems.length > 0) {
+          console.log(
+            '[CartService] Backend empty, syncing local items to backend...'
+          );
+          this.syncLocalItemsToBackend(currentLocalItems);
+        } else {
+          // Backend has items, use those
+          this._items.set(backendItems);
+        }
       });
+  }
+
+  // Sync local cart items to backend
+  private syncLocalItemsToBackend(localItems: CartItem[]) {
+    console.log('[CartService] Syncing local items to backend:', localItems);
+
+    // Add each local item to backend one by one
+    let syncedCount = 0;
+    localItems.forEach((item, index) => {
+      if (item.bookId) {
+        // Add the item with its quantity
+        for (let i = 0; i < item.quantity; i++) {
+          this.http
+            .post<{ cartId: string; items: BackendCartItem[] }>(
+              `${this.apiUrl}/cart/add`,
+              { bookId: item.bookId },
+              { withCredentials: true }
+            )
+            .pipe(
+              map((response) =>
+                response.items.map((i) => ({
+                  _id: i._id,
+                  title: i.book.title,
+                  author: i.book.author,
+                  genre: i.book.category,
+                  price: i.book.price,
+                  quantity: i.quantity,
+                  bookId: i.book._id,
+                  coverImage:
+                    (i.book as any).coverImage || (i.book as any).image_url,
+                }))
+              ),
+              catchError((err) => {
+                console.error('[CartService] Failed to sync item:', item, err);
+                return of(null);
+              })
+            )
+            .subscribe((items) => {
+              syncedCount++;
+              // Update local state with backend response after last item
+              if (
+                syncedCount ===
+                localItems.reduce((sum, it) => sum + it.quantity, 0)
+              ) {
+                if (items) {
+                  console.log(
+                    '[CartService] All items synced, updating state:',
+                    items
+                  );
+                  this._items.set(items);
+                }
+              }
+            });
+        }
+      }
+    });
+
+    // If no items had bookId, keep local items
+    if (localItems.every((item) => !item.bookId)) {
+      console.log('[CartService] No items with bookId, keeping local state');
+    }
   }
 
   add(item: Omit<CartItem, 'quantity'> & { quantity?: number }) {
@@ -115,7 +188,8 @@ export class CartService {
           }),
           catchError((err) => {
             console.error('[CartService] Backend add failed:', err);
-            this.useBackend.set(false);
+            console.error('[CartService] Error details:', err.error);
+            // Don't disable backend mode, just add locally as fallback
             return of(null);
           })
         )
@@ -124,11 +198,16 @@ export class CartService {
             console.log('[CartService] Cart updated with items:', items);
             this._items.set(items);
           } else {
+            console.warn(
+              '[CartService] Backend add failed, adding to local cart as fallback'
+            );
             this.addLocal(item);
           }
         });
     } else {
-      console.log('[CartService] Adding to local cart');
+      console.log(
+        '[CartService] Adding to local cart (backend not enabled or no bookId)'
+      );
       this.addLocal(item);
     }
   }

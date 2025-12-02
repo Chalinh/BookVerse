@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../services/cart.service';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './payment.html',
   styleUrls: ['./payment.css'],
 })
-export class Payment {
+export class Payment implements OnInit {
   name = '';
   shippingAddress = '';
   cardNumber = '';
@@ -28,6 +28,12 @@ export class Payment {
   private cart = inject(CartService);
   private orderService = inject(OrderService);
   private router = inject(Router);
+
+  ngOnInit() {
+    // Sync cart with backend on page load
+    console.log('[Payment] Syncing cart with backend on page load');
+    this.cart.fetchCart();
+  }
 
   get items() {
     return this.cart.items();

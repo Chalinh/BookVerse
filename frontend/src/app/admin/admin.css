@@ -356,7 +356,7 @@
 }
 
 .order-status-bottom {
-  margin-top: auto; /* push to bottom */
+  margin-top: auto;
   padding-top: 0.5rem;
   border-top: 1px dashed #e5e7eb;
 }

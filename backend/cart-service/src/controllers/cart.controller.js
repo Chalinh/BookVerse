@@ -2,13 +2,11 @@ import Cart from "../models/cart.model.js";
 import CartItem from "../models/cartItem.model.js";
 import axios from "axios";
 
-// For fetching book details from book-service
+// Book service URL for fetching book details
 const BOOK_SERVICE_URL =
   process.env.BOOK_SERVICE_URL || "http://localhost:3004/api/books";
 
-// ================================
-// Helper: fetch book details
-// ================================
+// Fetch book details from book service
 const fetchBookDetails = async (bookId) => {
   try {
     const response = await axios.get(
@@ -21,9 +19,7 @@ const fetchBookDetails = async (bookId) => {
   }
 };
 
-// ================================
-// Helper: get cart details with populated books
-// ================================
+// Get cart details with populated books
 const getCartDetails = async (cartId) => {
   const items = await CartItem.find({ cart: cartId });
   return await Promise.all(
@@ -39,9 +35,7 @@ const getCartDetails = async (cartId) => {
   );
 };
 
-// ================================
-// GET USER CART
-// ================================
+// Get user cart
 export const getCart = async (req, res) => {
   console.log("[Cart Controller] Get cart request:", {
     userId: req.user?.id,
@@ -78,9 +72,7 @@ export const getCart = async (req, res) => {
   }
 };
 
-// ================================
-// ADD ONE TO CART
-// ================================
+// Add item to cart
 export const addToCart = async (req, res) => {
   const { bookId } = req.body;
   console.log("[Cart Controller] Add to cart request:", {
@@ -142,9 +134,7 @@ export const addToCart = async (req, res) => {
   }
 };
 
-// ================================
-// REMOVE ONE FROM CART
-// ================================
+// Remove one item from cart
 export const removeOneFromCart = async (req, res) => {
   const { bookId } = req.body;
   try {
@@ -168,9 +158,7 @@ export const removeOneFromCart = async (req, res) => {
   }
 };
 
-// ================================
-// REMOVE CART ITEM (by ID)
-// ================================
+// Remove cart item by ID
 export const removeCartItem = async (req, res) => {
   const { itemId } = req.params;
   try {
@@ -196,9 +184,7 @@ export const removeCartItem = async (req, res) => {
   }
 };
 
-// ================================
-// CLEAR CART — only callable by order-service (service token)
-// ================================
+// Clear cart - only callable by order-service with valid service token
 export const clearCart = async (req, res) => {
   try {
     const token = req.header("X-Service-Token");

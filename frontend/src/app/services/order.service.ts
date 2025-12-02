@@ -22,7 +22,7 @@ export interface Order {
 @Injectable({ providedIn: 'root' })
 export class OrderService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://gateway-service-mddd.onrender.com/v1/orders';
+  private apiUrl = 'http://localhost:3000/v1/orders';
   private orderServiceDirect =
     'https://order-services-vezr.onrender.com/api/orders';
 

@@ -15,7 +15,7 @@ export interface Book {
 @Injectable({ providedIn: 'root' })
 export class BookService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://gateway-service-mddd.onrender.com/v1/books'; // API Gateway
+  private apiUrl = 'http://localhost:3000/v1/books'; 
 
   books = signal<Book[]>([]);
   loading = signal<boolean>(false);

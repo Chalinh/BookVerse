@@ -2,10 +2,10 @@ import Book from "../models/book.model.js";
 
 export const getAllBooks = async (req, res) => {
   try {
-    const books = await Book.find();
+    const books = await Book.find().lean();
     // Map category to genre for frontend compatibility
     const booksWithGenre = books.map((book) => ({
-      _id: book._id,
+      _id: book._id.toString(), // Convert ObjectId to string
       title: book.title,
       author: book.author,
       price: book.price,
@@ -53,7 +53,7 @@ export const getBooksByCategory = async (req, res) => {
     category = category.trim();
 
     const books = await Book.find({
-      category: { $regex: category, $options: "i" }, // case-insensitive
+      category: { $regex: category, $options: "i" },
     });
 
     if (books.length === 0) {

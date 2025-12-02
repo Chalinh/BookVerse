@@ -13,7 +13,7 @@ export const signup = async (req, res) => {
 
     // Create new user
     const newUser = new User({ username, email, password });
-    await newUser.save(); // pre('save') hook will hash password
+    await newUser.save();
 
     // Auto-login: Create tokens
     const accessToken = jwt.sign(
@@ -37,14 +37,14 @@ export const signup = async (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "Lax",
-      maxAge: 60 * 60 * 1000, // 1 hour
+      maxAge: 60 * 60 * 1000,
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "Lax",
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     res.status(201).json({
@@ -86,19 +86,19 @@ export const login = async (req, res) => {
     user.refreshToken = refreshToken;
     await user.save();
 
-    // Set access token in HTTP-only cookie (for API Gateway authentication)
+    // Set access token in HTTP-only cookie
     res.cookie("token", accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "Lax", // Changed from Strict to Lax to allow cross-site requests
-      maxAge: 60 * 60 * 1000, // 1 hour
+      sameSite: "Lax",
+      maxAge: 60 * 60 * 1000,
     });
 
     // Set refresh token in HTTP-only cookie
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // set true in prod
-      sameSite: "Lax", // Changed from Strict to Lax
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Lax",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 

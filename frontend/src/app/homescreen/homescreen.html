@@ -65,7 +65,7 @@
               *ngIf="book.coverImage"
               [src]="book.coverImage"
               [alt]="book.title"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-contain"
               (error)="$event.target.src = ''"
             />
             <span *ngIf="!book.coverImage" class="text-[#5A534C] text-lg"
@@ -91,6 +91,14 @@
             >
               {{ book.price }}$
             </div>
+          </div>
+
+          <!-- Book Description -->
+          <div
+            *ngIf="book.description"
+            class="text-sm opacity-70 mb-3 line-clamp-3"
+          >
+            {{ book.description }}
           </div>
 
           <!-- Actions -->

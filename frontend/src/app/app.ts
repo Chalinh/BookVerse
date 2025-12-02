@@ -62,6 +62,13 @@ export class App {
   constructor() {
     // Try to restore session on app load
     this.checkAuth();
+
+    // Enable backend immediately if user was previously authenticated
+    const wasAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    if (wasAuthenticated) {
+      console.log('[App] Enabling backend cart mode on app start');
+      this.cartService.enableBackend();
+    }
   }
 
   // Hide store shell (navbar/footer/modals) on admin routes

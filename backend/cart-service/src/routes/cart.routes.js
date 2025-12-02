@@ -5,30 +5,22 @@ import {
   addToCart,
   removeOneFromCart,
   removeCartItem,
-  clearCart
+  clearCart,
 } from "../controllers/cart.controller.js";
 import serviceAuthMiddleware from "../middleware/service.middleware.js";
 
 const router = express.Router();
 
-// ================================
-// GET USER CART
-// ================================
+// Get user cart
 router.get("/cart", authMiddleware, getCart);
 
-// ================================
-// ADD ONE TO CART (+1)
-// ================================
+// Add item to cart
 router.post("/cart/add", authMiddleware, addToCart);
 
-// ================================
-// REMOVE ONE FROM CART (-1)
-// ================================
+// Remove one item from cart
 router.post("/cart/remove", authMiddleware, removeOneFromCart);
 
-// ================================
-// REMOVE CART ITEM COMPLETELY
-// ================================
+// Remove cart item completely
 router.delete("/cart/item/:itemId", authMiddleware, removeCartItem);
 router.delete("/cart/clear", serviceAuthMiddleware, clearCart);
 
